@@ -24,6 +24,23 @@ Use it to **experiment, teach, or prototype** green cloud strategies in a fully 
 
 ---
 
+## 🌍 Why This Framework? (Problem & Objectives)
+
+Modern data centres suffer from:
+- **High energy consumption** and electricity costs  
+- **Poor resource utilisation** with many **idle or underutilised hosts**  
+- **Unnecessary carbon emissions** from wasted power  
+
+FYR is designed to:
+1. **Consolidate containers** onto fewer, better-utilised hosts  
+2. **Shut down idle hosts** safely to save energy  
+3. **Schedule workloads energy‑aware**, respecting SLAs (Gold/Silver/Bronze)  
+4. **Continuously monitor** energy, performance, and environmental impact  
+
+These high-level goals are explained in more depth in `FRAMEWORK_EXPLANATION.md`, while this README provides the practical overview.
+
+---
+
 ## 🚀 Quick Start
 
 > From the `energy_framework/` directory:
@@ -97,14 +114,14 @@ energy_framework/
 └── requirements.txt          # Python dependencies
 ```
 
-### Core Layers
+### Core Layers (5-Layer Design)
 
-- **Infrastructure** – collects host-level metrics (CPU, memory, power, etc.)  
-- **Virtualization** – models containers and their resource demands  
-- **Core Engine** – implements consolidation and optimization strategies  
-- **Orchestration** – decides where workloads run based on energy policies  
-- **Sustainability** – translates usage into **CO₂**, **cost**, and **efficiency**  
-- **Dashboard** – visual layer for real-time exploration and demos  
+- **Infrastructure Layer** – host monitoring, metrics collection, host states  
+- **Virtualization Layer** – Docker/container lifecycle and migrations  
+- **Core Component Layer** – consolidation algorithms and migration planning  
+- **Workload Orchestration Layer** – energy-aware, SLA-aware scheduling and load balancing  
+- **Sustainability Management Layer** – energy, carbon, cost, and KPI tracking  
+- **Dashboard** – real-time visualization and reporting on top of these layers  
 
 ---
 
@@ -122,6 +139,14 @@ This makes FYR ideal for:
 - Comparing different consolidation algorithms  
 - Demonstrating energy impact in lectures or workshops  
 - Building datasets for further analysis or ML-based scheduling  
+
+### Key Metrics Collected
+
+- **Resource metrics** – CPU %, memory %, power (W), temperature, containers/host  
+- **Performance metrics** – latency (ms), throughput (Mbps), response times  
+- **Energy metrics** – total/average power, total energy (Wh), power per container  
+- **Sustainability metrics** – carbon footprint (kg CO₂), estimated energy cost, efficiency score  
+- **Fleet metrics** – active/idle/shutdown hosts, container distribution and migrations  
 
 ---
 
@@ -156,6 +181,27 @@ These metrics update in **real time** and are available both:
 - Clean separation of concerns for experimentation  
 - Easy to plug in custom algorithms in `core/` and `orchestration/`  
 - Ready-to-use visual front-end for demos and presentations  
+
+### 🎓 Research Focus (From the Full Framework Explanation)
+
+FYR is built around concrete **research questions**, including:
+- **RQ1 – Energy efficiency**: How much energy can consolidation save while maintaining SLAs?  
+- **RQ2 – Resource utilisation**: What is the optimal utilisation vs. energy trade-off?  
+- **RQ3 – Performance impact**: How do consolidation strategies affect latency and throughput?  
+- **RQ4 – Environmental impact**: What carbon and cost reductions are achievable?  
+- **RQ5 – Scalability**: How does the framework behave for different cluster sizes and workloads?  
+
+Corresponding **objectives** include designing the multi-layer framework, building the monitoring and sustainability stack, and running experiments to quantify energy savings and performance effects.
+
+---
+
+## ✅ Benefits & Results (High-Level Summary)
+
+Experiments described in `FRAMEWORK_EXPLANATION.md` highlight that FYR can:
+- Achieve **~20–30% energy reduction** through consolidation and idle host shutdown  
+- **Maintain SLA compliance**, low latency, and acceptable throughput  
+- Provide **full observability** of hosts, containers, energy, and carbon in real-time  
+- Generate **reports and exports** (CSV/JSON/Excel) suitable for academic analysis or industry reporting  
 
 ---
 
