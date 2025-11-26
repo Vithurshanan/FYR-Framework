@@ -1,0 +1,217 @@
+<div align="center">
+
+# 🌱 FYR: Energy-Efficient Container Consolidation Framework
+
+**Real-time energy, cost, and carbon monitoring for containerized cloud workloads.**
+
+[![Status](https://img.shields.io/badge/status-active-success)](https://github.com/Vithurshanan/FYR-Framework)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+
+</div>
+
+---
+
+## 💡 What is FYR?
+
+FYR is a **research-grade framework** for exploring and prototyping **energy-efficient container consolidation** and **sustainable cloud infrastructure** strategies.
+
+- **Real-time energy monitoring** for hosts and containers  
+- **Container consolidation algorithms** to reduce idle capacity  
+- **Sustainability analytics** (carbon, cost, and efficiency)  
+- **Interactive dashboard** for visualizing system behavior over time  
+
+Use it to **experiment, teach, or prototype** green cloud strategies in a fully reproducible environment.
+
+---
+
+## 🚀 Quick Start
+
+> From the `energy_framework/` directory:
+
+### 1. Install dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+### 2. One-command real-time system (recommended)
+
+```bash
+python start_realtime.py
+```
+
+This will start:
+- ✅ Continuous monitoring & data generation (every 2 seconds)
+- ✅ Streamlit dashboard at `http://localhost:8501`
+- ✅ Live sustainability metrics and charts
+
+### 3. Manual control (advanced)
+
+```bash
+# Terminal 1: Continuous monitoring & data generation
+python continuous_monitor.py
+
+# Terminal 2: Dashboard
+streamlit run dashboard/dashboard.py --server.port 8501
+
+# Terminal 3: Run consolidation / scheduling simulation (optional)
+python main.py
+```
+
+---
+
+## 📊 Real-Time Dashboard
+
+**URL**: `http://localhost:8501`
+
+The dashboard is built for **live operations**:
+
+- 🟢 **Live Status** – host health, utilization, and container distribution  
+- 📈 **Dynamic Charts** – power, energy, and efficiency metrics over time  
+- 📦 **Container View** – placement, migrations, and consolidation effects  
+- 🌍 **Environmental Metrics** – CO₂ emissions and cost estimation  
+- 🔄 **Auto-Refresh** – updates every ~2 seconds for an operational feel  
+
+---
+
+## 🏗️ Architecture Overview
+
+FYR follows a **clean, layered architecture** to keep research logic modular and extensible.
+
+### Project Structure
+
+```text
+energy_framework/
+├── src/                      # Core framework logic
+│   ├── infrastructure/       # Host monitoring & raw metrics
+│   ├── virtualization/       # Container & VM abstraction
+│   ├── core/                 # Consolidation & optimization engine
+│   ├── orchestration/        # Energy-aware scheduling policies
+│   ├── sustainability/       # CO₂, cost, and efficiency models
+│   └── utils/                # Shared helpers/utilities
+├── dashboard/                # Streamlit-based real-time dashboard
+├── output/                   # Generated traces, logs, and reports
+├── continuous_monitor.py     # Real-time data generator
+├── start_realtime.py         # One-click end-to-end launcher
+├── main.py                   # Simulation entrypoint
+└── requirements.txt          # Python dependencies
+```
+
+### Core Layers
+
+- **Infrastructure** – collects host-level metrics (CPU, memory, power, etc.)  
+- **Virtualization** – models containers and their resource demands  
+- **Core Engine** – implements consolidation and optimization strategies  
+- **Orchestration** – decides where workloads run based on energy policies  
+- **Sustainability** – translates usage into **CO₂**, **cost**, and **efficiency**  
+- **Dashboard** – visual layer for real-time exploration and demos  
+
+---
+
+## 📈 Real-Time Monitoring & Data
+
+The monitoring subsystem:
+
+- Generates **realistic, high-frequency** time-series data (every 2 seconds)  
+- Records host and container states for later **analysis and replay**  
+- Feeds the dashboard with **live CSV/JSON updates**  
+- Captures the impact of **consolidation and scheduling decisions**  
+
+This makes FYR ideal for:
+
+- Comparing different consolidation algorithms  
+- Demonstrating energy impact in lectures or workshops  
+- Building datasets for further analysis or ML-based scheduling  
+
+---
+
+## 🌱 Sustainability & Metrics
+
+FYR focuses on **making sustainability visible and measurable**:
+
+- 🌍 **Carbon Footprint** – CO₂ emissions derived from energy usage  
+- 💰 **Cost Estimation** – approximate energy cost per time unit  
+- ⚙️ **Efficiency Score** – how much energy is saved vs. baseline  
+- 🔋 **Resource Utilization** – CPU/memory usage and consolidation gains  
+
+These metrics update in **real time** and are available both:
+- In the **dashboard**, and  
+- In the **output data** for offline analysis.  
+
+---
+
+## 🎯 Feature Highlights
+
+### ✅ Real-Time Operations
+- Continuous monitoring loop with configurable interval  
+- Live system state in the dashboard  
+- Auto-refreshing, time-series visualizations  
+
+### ✅ Energy & Consolidation Logic
+- Container consolidation strategies (extendable and pluggable)  
+- Idle host detection and potential shutdown/parking logic  
+- Hooks for trying out **new scheduling / consolidation policies**  
+
+### ✅ Research & Teaching Friendly
+- Clean separation of concerns for experimentation  
+- Easy to plug in custom algorithms in `core/` and `orchestration/`  
+- Ready-to-use visual front-end for demos and presentations  
+
+---
+
+## 🛠️ Extending FYR
+
+### Add a new algorithm or policy
+
+1. Implement your logic in the relevant `src/` submodule:  
+   - `core/` for consolidation / optimization algorithms  
+   - `orchestration/` for scheduling and decision policies  
+2. Wire it into the execution flow in `main.py` or `continuous_monitor.py`.  
+3. Expose its outputs to the dashboard via the existing data pipeline.  
+4. Add or update charts in `dashboard/dashboard.py` to visualize the new behavior.  
+
+### Typical development workflow
+
+```bash
+# Run a simulation-only experiment
+python main.py
+
+# Observe live monitoring behavior
+python continuous_monitor.py
+
+# Launch the dashboard (if not using start_realtime.py)
+streamlit run dashboard/dashboard.py --server.port 8501
+```
+
+---
+
+## 🤝 Contributing
+
+Contributions, ideas, and issue reports are very welcome.
+
+- Suggest new **energy models** or **sustainability metrics**  
+- Add or compare **consolidation algorithms**  
+- Improve the **dashboard UX** or visualizations  
+
+Feel free to open an **issue** or **pull request** on GitHub.
+
+---
+
+## 📚 Citation (Research Use)
+
+If you use this framework for academic work, you can cite it informally as:
+
+> V. Vithurshanan, *FYR: Energy-Efficient Container Consolidation Framework for Sustainable Cloud Computing*, 2025.  
+
+(A formal BibTeX entry can be added once a paper/preprint is published.)
+
+---
+
+## 📝 License
+
+This project is licensed under the **MIT License**.  
+See the `LICENSE` file for full details.
+
+---
+
+**🌱 Built for Sustainable Computing · 📊 Real-Time Monitoring · ⚡ Experiment-Ready**
